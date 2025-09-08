@@ -13,13 +13,13 @@ export class EmployeesService {
 
   async findAll(role?: 'INTERN' | 'ENGINEER' | 'ADMIN') {
     if(role) {
-      return this.databaseService.employee.findMany({where: {role, }});
+      return this.databaseService.employee.findMany({where: {role }});
     }
     return this.databaseService.employee.findMany();
   }
 
   async findOne(id: number) {
-    return this.databaseService.employee.findUnique({where: {id, }});
+    return this.databaseService.employee.findUnique({where: {id }});
   }
 
   async update(id: number, updateEmployeeDto: Prisma.EmployeeUpdateInput) {
